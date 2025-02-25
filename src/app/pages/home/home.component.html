@@ -1,0 +1,158 @@
+
+
+
+<section>
+    <div class="grid md:grid-cols-[70%_30%]">
+        <div>
+
+            <owl-carousel-o [options]="customOptionstype">
+                <ng-template carouselSlide>
+                    <img src="/images/slider-image-1.jpeg" class="w-full h-[400px]" alt="">
+    
+                </ng-template>  
+                <ng-template carouselSlide>
+                    <img src="/images/athletic-woman-exercising-gym-keep-fit.jpg" class="w-full h-[400px]" alt="">
+    
+                </ng-template>  
+                <ng-template carouselSlide>
+                    <img src="/images/img4.avif" class="w-full h-[400px] " alt="">
+    
+                </ng-template>  
+                <ng-template carouselSlide>
+                    <img src="/images/img3.avif" class="w-full h-[400px] " alt="">
+    
+                </ng-template>  
+                <ng-template carouselSlide>
+                    <img src="/images/img2.avif" class="w-full h-[400px] " alt="">
+    
+                </ng-template>  
+                <ng-template carouselSlide>
+                    <img src="/images/img1.avif" class="w-full h-[400px] " alt="">
+    
+                </ng-template>  
+               
+                  
+                <ng-template carouselSlide>
+                    <img src="/images/portrait-young-girl-with-face-mask.jpg" class="w-full h-[400px]" alt="">
+    
+                </ng-template>  
+                <ng-template carouselSlide>
+                    <img src="/images/img5.avif" class="w-full h-[400px]" alt="">
+    
+                </ng-template>  
+                <ng-template carouselSlide>
+                    <img src="/images/slider-image-2.jpeg" class="w-full h-[400px]" alt="">
+    
+                </ng-template>  
+                <ng-template carouselSlide>
+                    <img src="/images/img6.avif" class="w-full h-[400px]" alt="">
+    
+                </ng-template>  
+               
+                
+                <ng-template carouselSlide>
+                    <img src="/images/img7.avif" class="w-full h-[400px]" alt="">
+    
+                </ng-template>  
+               
+                 
+               
+                
+              </owl-carousel-o>
+       
+        </div>
+
+       
+        
+
+
+    
+          
+     <div>
+        <img src="/images/slider-image-3.jpeg" class="w-full h-[200px]" alt="">
+        <img src="/images/kettlebell-fitness-still-life.jpg" class="w-full h-[200px]" alt="">
+     </div>
+    </div>
+</section>
+
+
+
+
+
+<section>
+    <h2 class="text-4xl mb-3  text-center font-bold py-10 text-[#ffafcc]  "> Popular Categories </h2>
+    <owl-carousel-o [options]="customOptions">
+        @for (cat of categories; track cat._id) 
+        {
+            <ng-template carouselSlide >
+               
+                <div [routerLink]="['/Categories-details' ,cat._id ]">
+                    <img [src]="cat.image" class="w-full h-[300px] " alt="">
+                    <h3> {{cat.name}} </h3>
+                </div>
+            
+            </ng-template>
+          
+
+        }
+    
+      </owl-carousel-o>
+</section>
+
+
+
+
+
+
+
+
+<section class=" ">
+    <h2 class="text-4xl  text-center font-bold py-10 mb-3 text-[#ffafcc]  ">Products Popular</h2>
+    
+    <div  
+   
+    class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 ">
+       
+        @for (item of products.slice(0 , 20); track item._id) 
+        {
+            
+            <div  
+            data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000"
+             class="card border border-sky-300 rounded-lg overflow-hidden shadow relative">
+            
+             <div > 
+                <div class="card-imag">
+                    <img   [routerLink]="['/details', item._id]" [src]="item.imageCover" class="w-full h-[150x] " alt="">
+                    <span
+                   
+
+                    
+
+                    (click)="addwishList( item._id)"><i class="fa-solid fa-heart absolute top-2 end-2 text-2xl "></i>
+                
+                </span>
+                </div>
+                <div class="card-body px-2 py-4  ">
+                    <h3 class="font-bold text-[#ffafcc]"> {{item.title.split(' ' ,2).join('')}} </h3>
+                    <div class="flex justify-between items-center">
+                        <span> {{item.price}} </span>
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-400  ms-2"></i>
+                            <span> {{item.ratingsAverage}} </span>
+    
+                        </div>
+    
+                    </div>
+    
+                </div>
+             </div>
+                <button
+                
+                class="bg-sky-400 border rounded w-[90%] mx-auto block text-white py-2 px-10"  (click)="addProductTocart(item._id)"> Add To Cart</button>
+    
+            </div>
+    
+
+        }
+    </div>
+</section>

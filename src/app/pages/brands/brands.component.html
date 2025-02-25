@@ -1,0 +1,33 @@
+<section class="py-10">
+   
+    <div class="container">
+        <h1 class="font-bold text-4xl text-center  mb-5 text-[#ffafcc]">Brands</h1>
+
+        <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-8">
+           
+    
+    
+            @for (Brand of Brands; track Brand._id)
+             {
+                <div
+                data-aos="zoom-in-down" data-aos-easing="ease-out-cubic" data-aos-duration="3000"
+                
+                [routerLink]="['/brand-details' ,Brand._id ]" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+        
+                    <img class="rounded-t-lg" [src]="Brand.image" alt="" />
+                
+                <div class=" flex justify-between items-center">
+                   
+                        <h5 class="mb-2 ms-2 text-sm font-bold tracking-tight text-[#41729E] ">{{Brand.name.split(" ",1).join(' ')}}  </h5>
+                  
+                     <p class="mb-3 me-2 font-normal text-[#41729E] ">  </p>
+                    
+                    
+                </div>
+            </div>
+             }
+    
+    
+        </div>
+    </div>
+</section>

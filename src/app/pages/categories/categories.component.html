@@ -1,0 +1,49 @@
+
+
+
+<section>
+   
+    <div class="container">
+        <h1 class="text-center py-6 font-bold text-2xl text-[#41729E]"> Categories </h1>
+        <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-8">
+    
+            @for (item of categories; track item._id) 
+            {
+                <div  
+                data-aos="fade-up-right"
+                
+                class="w-full max-w-sm bg-white border relative border-gray-200 rounded shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                    
+                        <img class="h-[250px] object-contain w-full rounded-t-lg" [src]="item.image" alt="product image" />
+                        <span><i class="fa-solid fa-heart absolute top-2 start-2 text-sm"></i></span>
+                    
+    
+                    <div class="flex items-center justify-between">
+                        <span class="   rounded-full ms-2 px-3 py-1 text-green-700 mb-3 dark:text-white"> {{item.slug}} <i class="fas fa-star"></i></span>
+                        <span 
+                        (click)="addProductTocart(item._id)"
+                        class="  text-gray-900 mb-3 me-2 dark:text-white"><i class="fa-solid fa-cart-plus"></i></span>
+                      
+                        
+                    </div>
+                    <div class=" 
+                    ">
+                        <div class=" flex  items-center justify-between" >
+                            <h5 class="text-sm mb-3 ms-2  dark:text-white">{{item.name.split(' ',2).join(' ')}}</h5>
+                            <span class="  me-2 rounded-full  px-3 py-1 text-green-700 mb-3 dark:text-white"> {{item._id.split('',2).join('')}} </span>
+                            
+                          
+                        </div>
+                     
+                        
+                        
+                    </div>
+                </div>
+    
+    
+    
+            }
+    
+        </div>
+    </div>
+</section>

@@ -1,0 +1,74 @@
+
+
+
+
+
+
+
+@if (cartDetails.totalCartPrice) 
+{
+    <section class="w-[95%] mx-auto shadow rounded p-5 border">
+      <h1 class="text-center text-[#41729E] font-bold  py-5 text-[30px]  "> Shop Cart </h1>
+   
+      <div class="flex justify-between items-center">
+        <h1 class="text-start text-white p-4 rounded bg-[#41729E] mb-4 font-bold  text-[15px]  ">Total cart Price :_ {{cartDetails.totalCartPrice|currency:'GBP'}} </h1>
+        <button (click)="clearCart()" class="text-end text-white px-6 py-1 rounded bg-red-950   font-bold  text-[10px]  ">Clear Cart </button>
+      </div>
+        @for (item of cartDetails.products; track item.product.id) 
+        {
+            <div class="grid md:grid-cols-[10%_minmax(0,1fr)] border-b  mb-6 mt-6">
+    
+                <div>
+                    <img  [src]=" item.product.imageCover"  class="w-full h-[100px] rounded-lg" alt="">
+                </div>
+        
+                <div class="flex justify-between items-center ">
+                    <div>
+                        <h1 class="p-2 text-center font-bold text-[#ffafcc]">Products</h1>
+                        <br>
+                        <h3 class="text-center text-[#41729E] text-[10px] font-bold">{{item.product.title.split(' ',2).join(' ')}}</h3>
+                    </div>
+                    <div>
+                        <h1 class="p-2 text-center font-bold text-[#ffafcc]">Price</h1>
+                        <br>
+                        <h3 class="text-center text-[#41729E] text-[10px] font-bold">{{item.price}}</h3>
+                    </div>
+                    <div>
+                        <h1 class="p-2 text-center font-bold text-[#ffafcc]">Quantity</h1>
+                        <br>
+                       
+                        <div class="flex  justify-center items-center gap-3">
+                            <button (click)="updataCart(item.product.id, item.count + 1)" class="text-center text-[#41729E] text-2xl"><i class="fa-solid fa-square-plus"></i>
+                            </button>
+                            <span>{{item.count}}</span>
+                            <button (click)="updataCart(item.product.id, item.count - 1)" class="text-center text-[#41729E] text-2xl"><i class="fa-solid fa-square-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                   
+                    <div>
+                        <h1 class="p-2 text-center font-bold text-[#ffafcc]">Remove</h1>
+                        <br>
+                        <h1  (click)="deletecart(item.product.id)" class="text-center text-[#41729E] text-2xl"><i class="fa-regular fa-trash-can"></i></h1>
+                    </div>
+                   
+                    
+        
+                </div>
+            </div>
+        }
+    
+        <button  [routerLink]="['/checkout' , cartDetails._id]" class="bg-[#41729E] py-2 px-8 rounded-full text-white">Check Online
+
+            
+            @if(isLoading){
+                <span><i class="fas fa-spin fa-spinner"></i></span>
+
+            }
+        </button>
+    </section>
+}
+@else {
+    <img src="/images/girl-with-curly-hair-doing-shopping.jpg" class="min-w-full " alt="">
+    <!-- <h1 class="py-10 text-center shadow rounded text-[#41729E] font-bold">No Data Found</h1> -->
+}

@@ -1,0 +1,73 @@
+
+@if (products ) 
+{
+    <section class="py-10">
+      
+        <div class="container">
+            <h1 class=" mt-4 text-center text-4xl mb-9 text-[#ffafcc] font-bold">Details Products</h1>
+
+
+
+            <owl-carousel-o [options]="customOptions">
+    
+            
+             
+                @for (cat of products.images; track $index) 
+                {
+                    <ng-template carouselSlide>
+                        <img [src]="cat" class="w-full rounded-3xl" alt="">
+                      
+                      
+                      </ng-template>
+                }
+           
+            
+              </owl-carousel-o>
+            <div class="flex items-center mt-9" >
+    
+               
+                
+                <div class="w-[30%]">
+    
+                   
+    
+                  <img [src]="products.imageCover" alt="">
+                </div>
+                <div class="w-[70%]">
+                    <h2 class="text-[#41729E] font-bold text-2xl mt-6">{{products.title}} </h2>
+                    <p class=" mt-6 text-gray-400"> {{products.description}} </p>
+                    <h3 class=" mt-6"> {{products.category.name}} </h3>
+        
+                    <div class="card-body px-2 py-4">
+                        
+                         
+                         <div class="flex justify-between items-center">
+                            <span>
+                                {{products.price}} EGP
+        
+                            </span>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-300"></i>
+                                <i class="fas fa-star text-yellow-300"></i>
+                                <i class="fas fa-star text-yellow-300"></i>
+                                <i class="fas fa-star text-yellow-300"></i>
+                                <span class="text-gray-500"> {{products.ratingsAverage}} </span>
+        
+                            </div>
+        
+                         </div>
+                    </div>
+                    <button
+                    (click)="addProductTocart(products._id)"
+                    class="bg-[#ffafcc] w-[100%] mx-auto block text-white px-10 border rounded py-2">
+                       + Add To Cart
+                    </button>
+                 </div>
+                  
+                 
+        
+                </div>
+           
+        </div>
+    </section>
+}

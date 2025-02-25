@@ -1,0 +1,71 @@
+<!-- @for (item of Iorders; track item._id) {
+    @for (ordwe of item.cartItems; track $index) {
+        <h1>{{ordwe.product.imageCover}}</h1>
+    }
+} -->
+
+
+
+<section class="w-[70%] mx-auto shadow rounded p-5 border">
+   
+    <div class="container">
+        <h1 class="text-center text-[#41729E] font-bold  py-5 text-[30px]  "> All orders </h1>
+ 
+        <div class="flex justify-between items-center">
+        
+            
+        </div>
+        @for (item of Iorders; track item._id) 
+        {
+            @for (order of item.cartItems; track $index)
+             {
+                <div class="grid md:grid-cols-[10%_minmax(0,1fr)] border-b  mb-6 mt-6">
+      
+                    <div>
+                        <img  [src]="order.product.imageCover"  class="w-full h-[100px] rounded-lg" alt="">
+                    </div>
+            
+                    <div class="flex justify-between items-center ">
+                        <div>
+                          
+                            <br>
+                            <h3 class="text-center text-[#41729E] text-[10px] font-bold"></h3>
+                        </div>
+                        <div>
+                           
+                            <br>
+                            <h3 class="text-center text-[#41729E] text-[10px] font-bold">{{order.count}}</h3>
+                        </div>
+                        <div>
+                            
+                            <br>
+                           
+                            <!-- <div class="flex  justify-center items-center gap-3">
+                                
+                                
+                            </div> -->
+                        </div>
+                       
+                        <div>
+                            
+                            <br>
+                            <h1   class="text-center text-[#41729E] text-2xl">{{order.product.ratingsQuantity}}</h1>
+                        </div>
+                       
+                        
+            
+                    </div>
+                </div>
+            }
+        }
+          
+    </div>
+      
+          
+        
+        
+     
+  </section>
+
+
+

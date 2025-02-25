@@ -1,0 +1,207 @@
+<section  class="card rounded w-4/5 mx-auto py-10 shadow ">
+    <h2 class="text-center font-bold mb-4 text-3xl text-[#41729E] "> Register Now</h2>
+
+   
+    <form [formGroup]="Register" (ngSubmit)="submitForm()">
+        <div class="mb-3">
+           
+            <label for="name" class="block mb-2 text-lg font-medium text-white  w-4/5 mx-auto dark:text-white">name</label>
+            <input 
+            formControlName="name"
+            type="text" id="name" class=" border border-gray-300  rounded  block w-4/5 mx-auto p-2.5   text-sm dark:bg-[#ffafcc] dark:border-bg-[#ffafcc] focus:ring-[#ffafcc] focus:border-[#ffafcc] dark:placeholder-blue-500 dark:text-blue-500  ">
+                @let nameControl=Register.get('name');
+           
+            @if (nameControl?.errors && nameControl?.touched) 
+            {
+                <div class="flex p-2 mt-2 text-sm text-red-800 rounded-lg  w-4/5 mx-auto  bg-red-100 dark:bg-gray-800 dark:text-red-400" role="alert">
+                    <svg class="shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                    </svg>
+                    <span class="sr-only">Danger</span>
+                    <div>
+                     
+                        <ul class="mt-1.5 list-disc list-inside">
+                         @if ( nameControl?.getError('required')) 
+                         {
+                            <li>name is required</li>
+                         }
+
+                         @else if( nameControl?.getError('minlength')) {
+                            <li>name is minLength is : 3</li>
+                         }
+                         @else if( nameControl?.getError('maxlength')) {
+                            <li>name is maxLength is : 20</li>
+                         }
+                          
+                      </ul>
+                    </div>
+                 </div>
+            }
+        
+        </div>
+       
+      
+    
+    
+        <div class="mb-3">
+            <label for="email" class="block mb-2 text-lg font-medium text-white  w-4/5 mx-auto dark:text-white">email</label>
+            <input
+            formControlName="email"
+            
+            type="email" id="email" class=" border border-gray-300 text-sm rounded text-gray-900  block w-4/5 mx-auto p-2.5 dark:bg-[#ffafcc] dark:border-bg-[#ffafcc] focus:ring-[#ffafcc] focus:border-[#ffafcc] dark:placeholder-gray-50 dark:text-white  ">
+
+             
+          
+            
+               @let emailControl=Register.get('email');
+            @if (emailControl?.errors && emailControl?.touched) 
+            {
+                <div class="flex p-2 mt-2 text-sm text-red-800 rounded-lg  w-4/5 mx-auto  bg-red-100 dark:bg-gray-800 dark:text-red-400" role="alert">
+                    <svg class="shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                    </svg>
+                    <span class="sr-only">Danger</span>
+                    <div>
+                     
+                        <ul class="mt-1.5 list-disc list-inside">
+                       
+                        
+                           @if (emailControl?.getError('required')) {
+                            <li> email is required</li>
+                           }
+                           @else {
+                            <li>Enter Valid Email</li> 
+                           }
+                      </ul>
+                    </div>
+                 </div>
+            }
+            
+        </div>
+    
+    
+        <div class="mb-3">
+           
+            <label for="password" class="block mb-2 text-lg font-medium text-white  w-4/5 mx-auto dark:text-white">password</label>
+            <input 
+            formControlName="password"
+            type="password" id="password" class="text-gray-900 border border-gray-300 text-sm rounded  block w-4/5 mx-auto p-2.5 dark:bg-[#ffafcc] dark:border-bg-[#ffafcc] focus:ring-[#ffafcc] focus:border-[#ffafcc] dark:placeholder-gray-50 dark:text-white  ">
+
+            @let passwordControl=Register.get('password');
+            @if (passwordControl?.errors && passwordControl?.touched) 
+            {
+                <div class="flex p-2 mt-2 text-sm text-red-800 rounded-lg  w-4/5 mx-auto  bg-red-100 dark:bg-gray-800 dark:text-red-400" role="alert">
+                    <svg class="shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                    </svg>
+                    <span class="sr-only">Danger</span>
+                    <div>
+                     
+                        <ul class="mt-1.5 list-disc list-inside">
+                       
+                        
+                           @if (passwordControl?.getError('required')) {
+                            <li> password is required</li>
+                           }
+                           @else if(passwordControl?.getError('pattern')) {
+                            <li>Enter Valid password</li> 
+                           }
+                      </ul>
+                    </div>
+                 </div>
+            }
+        </div>
+    
+    
+    
+        <div class="mb-3">
+            
+            <label for="rePassword" class="block mb-2 text-lg font-medium text-white  w-4/5 mx-auto dark:text-white">rePassword</label>
+            <input
+            formControlName="rePassword"
+            type="password" id="rePassword" class="text-gray-900 border border-gray-300 text-sm rounded  block w-4/5 mx-auto p-2.5 dark:bg-[#ffafcc] dark:border-bg-[#ffafcc] focus:ring-[#ffafcc] focus:border-[#ffafcc] dark:placeholder-gray-50 dark:text-white  ">
+
+           
+               
+            @if ( Register.getError('mismatch') && Register.get('rePassword')?.touched) 
+            {
+                <div class="flex p-2 mt-2 text-sm text-red-800 rounded-lg  w-4/5 mx-auto  bg-red-100 dark:bg-gray-800 dark:text-red-400" role="alert">
+                    <svg class="shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                    </svg>
+                    <span class="sr-only">Danger</span>
+                    <div>
+                     
+                        <ul class="mt-1.5 list-disc list-inside">
+                       
+                        
+                           
+                            <li>Password confirmation is incorrect</li>
+                          
+                          
+                           
+                          
+                      </ul>
+                    </div>
+                 </div>
+            }
+            
+        </div>
+    
+    
+    
+        <div class="mb-3">
+           
+            <label for="phone" class="block mb-2 text-lg font-medium text-white  w-4/5 mx-auto dark:text-white">phone</label>
+            <input
+            formControlName="phone"
+             type="tel" id="phone" class="text-gray-900 border border-gray-300 text-sm rounded  block w-4/5 mx-auto p-2.5 dark:bg-[#ffafcc] dark:border-bg-[#ffafcc] focus:ring-[#ffafcc] focus:border-[#ffafcc] dark:placeholder-gray-50 dark:text-white  ">
+
+             @let phoneControl=Register.get('phone');
+             @if (phoneControl?.errors && phoneControl?.touched) 
+             {
+                 <div class="flex p-2 mt-2 text-sm text-red-800 rounded-lg  w-4/5 mx-auto  bg-red-100 dark:bg-gray-800 dark:text-red-400" role="alert">
+                     <svg class="shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                       <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                     </svg>
+                     <span class="sr-only">Danger</span>
+                     <div>
+                      
+                         <ul class="mt-1.5 list-disc list-inside">
+                        
+                         
+                            @if (phoneControl?.getError('required')) {
+                             <li> phone is required</li>
+                            }
+                            @else {
+                             <li>Enter Valid phone</li> 
+                            }
+                       </ul>
+                     </div>
+                  </div>
+             }
+        </div>
+
+
+        <button [disabled]="isLoading"  text="submit" class="bg-[#ffafcc] rounded ms-20   py-2 px-12 text-white  ">Signup
+       @if (isLoading) 
+       {
+        <span><i class="fas fs-spin fa-spinner"></i> </span>
+
+       }
+        </button>
+
+       @if (msError) {
+        <p class="bg-[#41729E] py-4 mt-3 text-center  px-7 rounded w-4/5 mx-auto text-white"> {{msError}} </p>
+    
+       }
+        
+
+       @if (isSuccess) {
+        <p class="bg-[#ffafcc] py-4 mt-3 text-center  px-7 rounded w-4/5 mx-auto text-white"> {{isSuccess}} </p>
+    
+       }
+    
+    </form>
+
+</section>

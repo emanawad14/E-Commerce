@@ -1,0 +1,10 @@
+.maincolor
+{
+    background-color: #ffafcc;
+    padding: 5px 12px ;
+    border-radius: 3px;
+    transition: all .4s;
+    &:hover{
+        background-color: #023049;
+    }
+}

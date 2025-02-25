@@ -1,0 +1,30 @@
+
+<section class="py-10">
+    <!-- #ffafcc          #41729E-->
+   
+    <div class="container">
+        <h1 class="text-center font-bold text-4xl mb-5 text-[#ffafcc]"> Details Brands</h1>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 border border-1 shadow rounded-2xl py-7 items-center">
+            <div>
+                <img [src]="details.image" alt="">
+               
+                
+            </div>
+            <div>
+                
+                <h3 class="text-center mb-7 mt-5 me-3"><span class="font-bold text-2xl text-[#41729E]">Name :</span> {{details.name}} </h3>
+                <h3 class="text-center mb-7 mt-5 me-3"><span class="font-bold text-2xl text-[#41729E]">Slug :</span> {{details.slug}} </h3>
+                <h3 class="text-center mt-5 me-3"><span class="font-bold text-2xl text-[#41729E]">Id :</span> {{details._id.split('',4).join("")}} </h3>
+            </div>
+            <div>
+                
+                <h3 class="text-center mt-5 mb-10 me-3"> <span class="font-bold text-2xl text-[#41729E]">Create :</span> {{details.createdAt}} </h3>
+                <h3 class="text-center mt-5 mb-10 me-3"> <span class="font-bold text-2xl text-[#41729E]">UPdate :</span> {{details.updatedAt}} </h3>
+            </div>
+            
+            
+    
+    
+        </div>
+    </div>
+</section>
